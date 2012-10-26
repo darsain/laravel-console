@@ -1,0 +1,70 @@
+/* ambiance theme for code-mirror */
+
+/* Color scheme */
+
+.cm-s-laravel { color: #aaa; }
+.cm-s-laravel .CodeMirror-gutter .CodeMirror-gutter-text{ color: #555; }
+
+.cm-s-laravel .cm-keyword { color: #DB613B; }
+.cm-s-laravel .cm-atom { color: #CF7EA9; }
+.cm-s-laravel .cm-number { color: #86E499; }
+.cm-s-laravel .cm-def { color: #aac6e3; }
+.cm-s-laravel .cm-variable { color: #fff; }
+.cm-s-laravel .cm-variable-2 { color: #fff; }
+.cm-s-laravel .cm-variable-3 { color: #faded3; }
+.cm-s-laravel .cm-property { color: #eed1b3; }
+.cm-s-laravel .cm-operator {color: #fa8d6a;}
+.cm-s-laravel .cm-comment { color: #555; }
+.cm-s-laravel .cm-string { color: #e3b446; }
+.cm-s-laravel .cm-string-2 { color: #9d937c; }
+.cm-s-laravel .cm-meta { color: #D2A8A1; }
+.cm-s-laravel .cm-error { color: #AF2018; }
+.cm-s-laravel .cm-qualifier { color: yellow; }
+.cm-s-laravel .cm-builtin { color: #9999cc; }
+.cm-s-laravel .cm-bracket { color: #24C2C7; }
+.cm-s-laravel .cm-tag { color: #fee4ff }
+.cm-s-laravel .cm-attribute {  color: #9B859D; }
+.cm-s-laravel .cm-header {color: blue;}
+.cm-s-laravel .cm-quote { color: #24C2C7; }
+.cm-s-laravel .cm-hr { color: pink; }
+.cm-s-laravel .cm-link { color: #F4C20B; }
+.cm-s-laravel .cm-special { color: #FF9D00; }
+
+.cm-s-laravel .CodeMirror-matchingbracket { color: #DF8D8D; text-shadow: 1px 1px 0 #000, 0 0 3px #DF8D8D; border-radius: 3px; }
+.cm-s-laravel .CodeMirror-nonmatchingbracket { color: #f00; }
+
+.cm-s-laravel .CodeMirror-selected { background: rgba(255, 255, 255, 0.10); }
+
+.CodeMirror-focused.cm-s-laravel .CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+
+/* Editor styling */
+
+.cm-s-laravel {
+  line-height: 1.40em;
+  font-family: Monaco, Menlo,"Andale Mono","lucida console","Courier New",monospace !important;
+  background-color: #222;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.4);
+}
+
+.cm-s-laravel .CodeMirror-gutter {
+  background: transparent;
+  padding: 0 5px;
+  border-right: 0;
+}
+
+.cm-s-laravel .CodeMirror-gutter .CodeMirror-gutter-text {
+  text-shadow: 0px 1px 1px #000;
+}
+
+.cm-s-laravel .CodeMirror-lines {
+
+}
+
+.cm-s-laravel .CodeMirror-lines .CodeMirror-cursor {
+  border-left: 2px solid #666;
+}
+
+.cm-s-laravel .activeline {
+  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.031);
+}
+
