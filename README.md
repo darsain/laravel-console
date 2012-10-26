@@ -55,7 +55,8 @@ That said, you shouldn't have this installed on your production servers anyway. 
 
 ## Screenshot
 
-![Screenshot](http://i.imgur.com/y3edI.png)
+![Index](http://i.imgur.com/bVW31.png)
+![Execution](http://i.imgur.com/y3edI.png)
 
 ---
 
