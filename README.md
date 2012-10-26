@@ -40,7 +40,11 @@ Than, publish the bundle assets:
 php artisan bundle:publish console
 ```
 
-And you are done! Open the console in `yourdomain.com/console`.
+And you are done! Open the console in:
+
+```
+yourdomain.com/console
+```
 
 ## Config
 
@@ -62,5 +66,5 @@ That said, you shouldn't have this installed on your production servers anyway. 
 
 #### Credits
 
-* I've used some lines from the awesome [Seldaek/php-console](https://github.com/Seldaek/php-console)
+* I've used some lines from the awesome [Seldaek/php-console](https://github.com/Seldaek/php-console).
 * Editor powered by [marijnh/CodeMirror](https://github.com/marijnh/CodeMirror) with custom theme for Laravel.
