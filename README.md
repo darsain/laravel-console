@@ -25,7 +25,7 @@ git clone git://github.com/Darsain/laravel-console.git console
 
 Register the bundle in `application/bundles.php`:
 
-```
+```php
 // application/bundles.php
 return array(
 	...
