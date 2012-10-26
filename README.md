@@ -55,7 +55,7 @@ That said, you shouldn't have this installed on your production servers anyway. 
 
 ## Screenshot
 
-![Screenshot](http://i.imgur.com/jYaB8.png)
+![Screenshot](http://i.imgur.com/y3edI.png)
 
 ---
 
