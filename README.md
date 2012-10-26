@@ -53,7 +53,7 @@ That means that this bundle can be run only from local environment.
 
 That said, you shouldn't have this installed on your production servers anyway. I take no responsibility for your laziness :)
 
-## Screenshot
+## Screenshots
 
 ![Index](http://i.imgur.com/bVW31.png)
 ![Execution](http://i.imgur.com/y3edI.png)
