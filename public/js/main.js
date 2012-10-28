@@ -52,7 +52,6 @@ jQuery(function ($) {
 		is_focused = 0,
 		editor = new CodeMirror($editor[0], {
 			mode: 'text/x-php',
-			value: '',
 			lineNumbers: true,
 			indentWithTabs: true,
 			matchBrackets: true,
@@ -64,6 +63,18 @@ jQuery(function ($) {
 			},
 			onBlur: function () {
 				is_focused = 0;
+			},
+			onChange: function () {
+				if (Modernizr.localstorage && localStorage.remember == 1) {
+					localStorage.code = editor.getValue();
+				}
+			},
+			onCursorActivity: function () {
+				if (Modernizr.localstorage && localStorage.remember == 1) {
+					var cursor = editor.getCursor();
+					localStorage.line = cursor.line;
+					localStorage.char = cursor.ch;
+				}
 			}
 		}),
 		execute = function() {
@@ -94,14 +105,13 @@ jQuery(function ($) {
 				console.log('fail response:', res);
 				$execution_diag.html(tmpl('request_error', res));
 				$output.show().html(res.responseText);
-
 			}).always(function () {
 				resize();
 			});
 		},
 		reset = function (){
 			$output.hide().html('');
-			$execution_diag.html(tmpl('execution_intro'));
+			$execution_diag.html(tmpl('execution_intro', { checked: Modernizr.localstorage && localStorage.remember == 1 }));
 			resize();
 		},
 		resize = function () {
@@ -112,16 +122,6 @@ jQuery(function ($) {
 			$editor.height(newHeight);
 		};
 
-	// Legacy profiler support, before I realized it won't work that way :)
-	// Offset console to account for profiler at the bottom
-	if ($profiler.length) {
-		$console.css({ bottom: $profiler.outerHeight() + 'px' });
-	}
-
-	// Execution initiators
-	$output.on('click', function () {
-		resize();
-	});
 	// Execution initiators
 	$execute.on('click', function () {
 		execute();
@@ -147,6 +147,35 @@ jQuery(function ($) {
 			editor.focus();
 		}
 	});
+
+	// Remember code
+	if (Modernizr.localstorage) {
+		var checked_class = 'checked';
+
+		// Restore the last editor state
+		if (Modernizr.localstorage && localStorage.remember == 1) {
+			editor.setValue(localStorage.code);
+			editor.setCursor(localStorage.line ? localStorage.line / 1 : 0, localStorage.char ? localStorage.char / 1 : 0);
+		}
+
+		$execution_diag.on('click', '.remember .button', function (event) {
+
+			var do_remember = localStorage.remember != 1,
+				cursor = editor.getCursor();
+
+			$(this)[do_remember ? 'addClass' : 'removeClass'](checked_class);
+
+			if (do_remember) {
+				localStorage.remember = 1;
+				localStorage.code = editor.getValue();
+				localStorage.line = cursor.line;
+				localStorage.char = cursor.ch;
+			} else {
+				localStorage.clear();
+			}
+
+		})[localStorage.remember == 1 ? 'addClass' : 'removeClass'](checked_class);
+	}
 
 	// Initiate view reset
 	reset();

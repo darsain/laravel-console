@@ -19,6 +19,7 @@
 <script type="text/html" id="template_execution_intro">
 	<li><strong><code>{{=(navigator.appVersion.indexOf("Mac")!=-1 ? 'Cmd' : 'Ctrl') }}+Enter</code></strong>: run your code
 	<span class="divider"></span> <strong><code>Esc</code></strong>: reset view</li>
+	<li class="remember"><span class="button {{=(checked ? 'checked' : '') }}">remember code</span></li>
 </script>
 
 <script type="text/html" id="template_execution_intro">
