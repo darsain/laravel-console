@@ -18,7 +18,7 @@ class Console_Console_Controller extends Controller {
 		Asset::container('header')->add('codemirror-theme', 'css/codemirror/theme/'.Config::get('console.theme', Config::get('console::console.theme')).'.css', 'codemirror');
 
 		/* Scripts */
-		Asset::container('footer')->add('modernizr', 'js/vendor/modernizr.js');
+		Asset::container('header')->add('modernizr', 'js/vendor/modernizr.js');
 
 		Asset::container('footer')->add('jquery', 'js/vendor/jquery.min.js');
 		Asset::container('footer')->add('plugins', 'js/vendor/plugins.js', 'jquery');
