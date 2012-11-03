@@ -53,6 +53,8 @@ jQuery(function ($) {
 		editor = new CodeMirror($editor[0], {
 			mode: 'text/x-php',
 			lineNumbers: true,
+			indentUnit: 4,
+			tabSize: 4,
 			indentWithTabs: true,
 			matchBrackets: true,
 			fixedGutter: true,
