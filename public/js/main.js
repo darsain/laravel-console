@@ -108,7 +108,7 @@ jQuery(function ($) {
 				$execution_diag.html(tmpl('request_error', res));
 				$output.show().html(res.responseText);
 			}).always(function () {
-				resize();
+				$output.imagesLoaded(resize);
 			});
 		},
 		reset = function (){
