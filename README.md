@@ -2,16 +2,21 @@
 
 In-browser console bundle for Laravel PHP framework.
 
-This bundle executes your code within `console::console@post_execute` controller context, and displays the produced output.
+This bundle executes your code within `console::Console@post_execute` controller context, and displays the produced output.
 
-The purpose is to easily test stuff without creating garbage routes and controllers just to run something, ...
+The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
 
-This bundle is meant for local testing, and **shouldn't get nowhere near your production servers!**
+This bundle is intended for local testing, and **shouldn't get nowhere near your production servers!**
+
+## Screenshots
+
+![Index](http://i.imgur.com/gdvVp.png)
+![Execution](http://i.imgur.com/lnSU0.png)
 
 ## Installation
 
-Install bundle by running this in your Laravel installation root:
+Install this bundle by running this in Laravel root:
 
 ```
 php artisan bundle:install console
@@ -34,7 +39,7 @@ return array(
 );
 ```
 
-Than, publish the bundle assets:
+Than publish the bundle assets:
 
 ```
 php artisan bundle:publish console
@@ -49,18 +54,13 @@ yourdomain.com/console
 ## Config
 
 You can override the default config by copying `bundles/console/config/console.php` into `application/config/console.php`
-and changing stuff to your liking.
+(or to your dev/local environment subdirectory) and changing it to your liking.
 
-You can mostly ignore the config, but what you should know about is that option `console.whitelist` contains an array
-of IP addresses available to access this bundle, and by default contains only `array('127.0.0.1', '::1')`.
-That means that this bundle can be run only from local environment.
-
-That said, you shouldn't have this installed on your production servers anyway. I take no responsibility for your laziness :)
-
-## Screenshots
-
-![Index](http://i.imgur.com/bVW31.png)
-![Execution](http://i.imgur.com/y3edI.png)
+You can mostly ignore the config, but what you should know about is that option `console.filter` sets the name of
+a route filter used to controll access to the console. By default `console_whitelist` filter uses
+the `console.whitelist` array (`array('127.0.0.1', '::1')`) to allow only localhost usage.
+You can change the filter, or the whitelist array to whatever you want, but not having this bundle on production
+servers should be a no-brainer :)
 
 ---
 
