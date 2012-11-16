@@ -138,16 +138,17 @@ jQuery(function ($) {
 		reset();
 	});
 
+	// Refocus editor on pressing TAB
+	jwerty.key('tab', function () {
+		if (!is_focused) {
+			editor.focus();
+			return false;
+		}
+	});
+
 	// Resize window
 	$(window).on('resize', function () {
 		resize();
-	});
-
-	// Refocus editor on typing
-	$(document).on('keydown', function () {
-		if (!is_focused) {
-			editor.focus();
-		}
 	});
 
 	// Remember code
