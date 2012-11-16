@@ -136,6 +136,7 @@ jQuery(function ($) {
 	// Reset view
 	jwerty.key('esc', function () {
 		reset();
+		editor.focus();
 	});
 
 	// Refocus editor on pressing TAB
