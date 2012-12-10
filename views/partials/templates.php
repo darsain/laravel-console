@@ -42,6 +42,14 @@
 </script>
 
 <script type="text/html" id="template_output">
+	<h2>Output</h2>
+	<hr>
+	<pre class="output_holder">{{=data}}</pre>
+</script>
+
+<script type="text/html" id="template_query">
+	<h2>Query</h2>
+	<hr>
 	<pre class="output_holder">{{=data}}</pre>
 </script>
 

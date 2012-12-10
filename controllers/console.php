@@ -51,21 +51,10 @@ class Console_Console_Controller extends Controller {
 			$code = preg_replace('#(\r?\n|\r\n?)#', $newLineBreak, $code);
 		}
 
-		// Execute and profile the time
-		ob_start();
-		$start_c8r3j4v9r3j = microtime(true); // "namespaced" so it won't get overriden
-		eval($code);
-		$end = microtime(true);
-		$output = ob_get_clean();
+		$data = ConsoleProfiler::render($code);
 
 		// Response
-		return Response::json(array(
-			'time'        => number_format(($end - $start_c8r3j4v9r3j) * 1000, 2),
-			'time_total'  => number_format((microtime(true) - LARAVEL_START) * 1000, 2),
-			'memory'      => get_file_size(memory_get_usage(true)),
-			'memory_peak' => get_file_size(memory_get_peak_usage(true)),
-			'output'      => $output
-		));
+		return Response::json($data);
 	}
 
 }

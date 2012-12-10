@@ -95,9 +95,11 @@ jQuery(function ($) {
 				console.log('done response:', res);
 				$output.show();
 
-				if (res && res.output !== undefined) {
+				if (res && res.output !== undefined && res.query_output !== undefined) {
 					$execution_diag.html(tmpl('execution_diag', res));
-					$output.html(res.output ? tmpl('output', res.output) : tmpl('no_output'));
+					var output_html = (res.output) ? tmpl('output', res.output) : '';
+					var query_html = (res.query_output) ? tmpl('query', res.query_output) : '';
+					$output.html((output_html || query_html) ? (output_html + query_html) : tmpl('no_output'));
 				} else {
 					$execution_diag.html(tmpl('ended_unexpectedly'));
 					$output.html(res);
