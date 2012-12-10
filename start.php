@@ -17,3 +17,11 @@ Config::set('error.log', false);
 */
 
 require __DIR__.DS.'helpers.php';
+require __DIR__.DS.'profiler/consoleprofiler.php';
+
+/*
+|--------------------------------------------------------------------------
+| Attach profiler event
+|--------------------------------------------------------------------------
+*/
+ConsoleProfiler::attach();
