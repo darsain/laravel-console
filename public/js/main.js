@@ -15,8 +15,7 @@
 
 		// Generate a reusable function that will serve as a template
 		// generator (and which will be cached).
-		new Function("obj",
-		"var p=[],print=function(){p.push.apply(p,arguments);};" +
+		new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};" +
 
 		// Introduce the data as local variables using with(){}
 		"with(obj){p.push('" +
@@ -42,14 +41,18 @@ jQuery(function ($) {
 
 	// Variables
 	var $console = $('#console'),
-		$output = $('#output'),
+		$tabs = $('#tabs'),
 		$controllbar = $('#controllbar'),
 		$editor = $('#editor'),
-		$profiler = $('#anbu-open-tabs'),
 		action = $console.data('action'),
 		$execute = $('#execute'),
 		$execution_diag = $('#execution_diag'),
 		is_focused = 0,
+		tabs = {
+			active: 'output',
+			initial: 'output',
+			activeClass: 'active'
+		},
 		editor = new CodeMirror($editor[0], {
 			mode: 'text/x-php',
 			lineNumbers: true,
@@ -93,31 +96,44 @@ jQuery(function ($) {
 
 			execution.done(function (res) {
 				console.log('done response:', res);
-				$output.show();
+				$tabs.show();
 
 				if (res && res.output !== undefined) {
 					$execution_diag.html(tmpl('execution_diag', res));
-					$output.html(res.output ? tmpl('output', res.output) : tmpl('no_output'));
+					$tabs.html(tmpl('output', res));
+					toggle(tabs.active, 1);
 				} else {
 					$execution_diag.html(tmpl('ended_unexpectedly'));
-					$output.html(res);
+					$tabs.html(tmpl('output', res));
+					toggle(tabs.initial, 1);
 				}
-
 			}).fail(function (res) {
 				console.log('fail response:', res);
 				$execution_diag.html(tmpl('request_error', res));
-				$output.show().html(res.responseText);
+				$tabs.show().html(tmpl('output', res.responseText));
 			}).always(function () {
-				$output.imagesLoaded(resize);
+				$tabs.imagesLoaded(resize);
 			});
 		},
-		reset = function (){
-			$output.hide().html('');
+		toggle = function (tab, force) {
+			var $holders = $tabs.children(),
+				$buttons = $execution_diag.find('[data-toggle]'),
+				newTab = force ? tab : tabs.active === tab ? tabs.initial : tab;
+
+			$buttons.removeClass(tabs.activeClass).filter('[data-toggle=' + newTab + ']').addClass(tabs.activeClass);
+
+			$holders.hide().filter('[data-tab=' + newTab + ']').show();
+			tabs.active = newTab;
+
+			resize();
+		},
+		reset = function () {
+			$tabs.hide().html('');
 			$execution_diag.html(tmpl('execution_intro', { checked: Modernizr.localstorage && localStorage.remember == 1 }));
 			resize();
 		},
 		resize = function () {
-			var output_height = $output.is(':visible') ? $output.outerHeight() : 0,
+			var output_height = $tabs.is(':visible') ? $tabs.outerHeight() : 0,
 				newHeight = Math.round($console.outerHeight() - output_height - $controllbar.outerHeight());
 
 			editor.setSize(null, newHeight);
@@ -133,10 +149,19 @@ jQuery(function ($) {
 		execute();
 	});
 
+	// Toggle profiler tabs
+	$execution_diag.on('click', '[data-toggle]', function () {
+		toggle($(this).data('toggle'));
+	});
+
 	// Reset view
 	jwerty.key('esc', function () {
-		reset();
-		editor.focus();
+		if (tabs.active !== tabs.initial) {
+			toggle(tabs.initial);
+		} else {
+			reset();
+			editor.focus();
+		}
 	});
 
 	// Refocus editor on pressing TAB
@@ -162,7 +187,7 @@ jQuery(function ($) {
 			editor.setCursor(localStorage.line ? localStorage.line / 1 : 0, localStorage.char ? localStorage.char / 1 : 0);
 		}
 
-		$execution_diag.on('click', '.remember .button', function (event) {
+		$execution_diag.on('click', '.remember .button', function () {
 
 			var do_remember = localStorage.remember != 1,
 				cursor = editor.getCursor();

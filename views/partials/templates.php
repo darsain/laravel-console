@@ -2,10 +2,20 @@
 <!-- Templates: start -->
 
 <script type="text/html" id="template_execution_diag">
-	<li><em>Execution:</em> <span class="time">{{=time}}ms</span></li>
-	<li><em>Total:</em> <span class="time_total">{{=time_total}}ms</span></li>
-	<li><em>Memory:</em> <span class="memory">{{=memory}}</span></li>
-	<li><em>Memory peak:</em> <span class="memory_peak">{{=memory_peak}}</span></li>
+	<li class="clickable" data-toggle="output"><span class="title">Output:</span> <span class="time_queries">{{=output_size}}</span></li>
+	<li class="clickable last-button" data-toggle="queries">
+		<span class="title">SQL:</span>
+		{{ if (queries.length) { }}
+			<span class="time_queries">{{=time_queries}} ms</span>
+		{{ } else { }}
+			<em>none</em>
+		{{ } }}
+	</li>
+	<li class="execution" title="Script execution / Laravel total">
+		<span class="title">Execution:</span> <span class="time">{{=time}}<span class="divider">/</span>{{=time_total}} ms</span>
+	</li>
+	<li><span class="title">Memory:</span> <span class="memory">{{=memory}}</span></li>
+	<li><span class="title">Memory peak:</span> <span class="memory_peak">{{=memory_peak}}</span></li>
 </script>
 
 <script type="text/html" id="template_execution_error">
@@ -17,7 +27,7 @@
 </script>
 
 <script type="text/html" id="template_execution_intro">
-	<li>
+	<li class="stretch">
 		<strong><code>{{=(navigator.appVersion.indexOf("Mac")!=-1 ? 'Cmd' : 'Ctrl') }}+Enter</code></strong>: execute
 		<span class="divider"></span> <strong><code>Esc</code></strong>: reset view
 		<span class="divider"></span> <strong><code>Tab</code></strong>: refocus editor
@@ -37,12 +47,35 @@
 	<li class="error">Code ended unexpectedly</li>
 </script>
 
-<script type="text/html" id="template_no_output">
-	<em class="no_output">Code produced no output</em>
-</script>
-
 <script type="text/html" id="template_output">
-	<pre class="output_holder">{{=data}}</pre>
+	<li data-tab="output" class="output">
+		{{ if (typeof output !== 'undefined' && output) { }}
+			<pre class="output_holder">{{=output}}</pre>
+		{{ } else if (typeof data !== 'undefined' && data) { }}
+			{{=data}}
+		{{ } else { }}
+			<span class="muted"><em>Code produced no output</em></span>
+		{{ } }}
+	</li>
+
+	<li data-tab="queries">
+		<ul class="queries">
+		{{ if (typeof queries !== 'undefined') { }}
+			{{ if (queries && queries.length) { }}
+				{{ for (var i = 0, l = queries.length; i < l; i++) { }}
+					<li class="clearfix">
+						<span class="time">{{=queries[i].time}} ms</span>
+						<span class="query">{{=queries[i].query}}</span>
+					</li>
+				{{ } }}
+			{{ } else { }}
+				<li class="clearfix">
+					<span class="muted"><em>No queries executed</em></span>
+				</li>
+			{{ } }}
+		{{ } }}
+		</ul>
+	</li>
 </script>
 
 <!-- Templates: end -->
