@@ -156,12 +156,8 @@ jQuery(function ($) {
 
 	// Reset view
 	jwerty.key('esc', function () {
-		if (tabs.active !== tabs.initial) {
-			toggle(tabs.initial);
-		} else {
-			reset();
-			editor.focus();
-		}
+		reset();
+		editor.focus();
 	});
 
 	// Refocus editor on pressing TAB

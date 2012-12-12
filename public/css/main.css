@@ -180,25 +180,26 @@ code { font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New
 }
 .no-flexbox .controllbar .execution_diag li { float: left; }
 
-.controllbar .execution_diag li.execution { cursor: help; }
-.controllbar .execution_diag li span { color: #aaa; font-weight: bold; }
-.controllbar .execution_diag li .title { margin-right: 5px; color: inherit; font-weight: normal; font-style: italic; }
-.controllbar .execution_diag li .divider { display: inline-block; margin: 0 6px; color: #666; font-weight: normal; }
-.controllbar .execution_diag li .slash {   }
-
+.controllbar .execution_diag li.help { cursor: help; }
 .controllbar .execution_diag li.stretch { -webkit-box-flex: 4; -moz-box-flex: 4; -ms-box-flex: 4; box-flex: 4; }
 .controllbar .execution_diag li.error { color: #DB613B; }
 .controllbar .execution_diag li.loading { width: 100%; background: url('../img/loading.gif') no-repeat center center; }
 .controllbar .execution_diag li.center { text-align: center; }
 .controllbar .execution_diag li:first-child { border-left: 0; }
-.controllbar .execution_diag li:last-child { border-right: 0; }
+.controllbar .execution_diag li.last-of-type,
+.controllbar .execution_diag li:last-child { border-right-width: 3px; }
 
-.controllbar .execution_diag li.clickable:hover,
-.controllbar .execution_diag li.clickable.active { background: rgba(255,255,255,.05); cursor: pointer; }
-.controllbar .execution_diag li.clickable.active { background: #222; }
-.csstransforms .controllbar .execution_diag li.clickable.active { position: relative; overflow: hidden; background: rgba(255,255,255,.04); }
-.csstransforms .controllbar .execution_diag li.clickable.active:hover { background: rgba(255,255,255,.08); }
-.csstransforms .controllbar .execution_diag li.clickable.active:before {
+.controllbar .execution_diag li span { color: #aaa; font-weight: bold; }
+.controllbar .execution_diag li .title { margin-right: 5px; color: inherit; font-weight: normal; font-style: italic; }
+.controllbar .execution_diag li .divider { display: inline-block; margin: 0 6px; color: #666; font-weight: normal; }
+.controllbar .execution_diag li .slash {   }
+
+.controllbar .execution_diag li.button:hover,
+.controllbar .execution_diag li.button.active { background: rgba(255,255,255,.05); cursor: pointer; }
+.controllbar .execution_diag li.button.active { background: #222; }
+.csstransforms .controllbar .execution_diag li.button.active { position: relative; overflow: hidden; background: rgba(255,255,255,.04); }
+.csstransforms .controllbar .execution_diag li.button.active:hover { background: rgba(255,255,255,.08); }
+.csstransforms .controllbar .execution_diag li.button.active:before {
 	position: absolute;
 	top: -12px;
 	left: 50%;
@@ -217,7 +218,7 @@ code { font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New
 	-o-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
-.csstransforms .controllbar .execution_diag li.last-button { border-right-width: 3px; }
+/*.csstransforms .controllbar .execution_diag li.last-button { border-right-width: 3px; }*/
 
 .no-localstorage .controllbar .execution_diag li.remember { display: none; }
 .controllbar .execution_diag li.remember .button { padding: 10px 10px 10px 0; color: #666; font-weight: normal; cursor: pointer; }
@@ -254,7 +255,6 @@ code { font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New
 	width: 200px;
 	height: 100%;
 	border: 0;
-	border-left: 1px solid #222;
 	background: #444;
 	-webkit-box-shadow: inset 1px 1px 0 rgba(255,255,255,.1);
 	-moz-box-shadow: inset 1px 1px 0 rgba(255,255,255,.1);

@@ -2,20 +2,21 @@
 <!-- Templates: start -->
 
 <script type="text/html" id="template_execution_diag">
-	<li class="clickable" data-toggle="output"><span class="title">Output:</span> <span class="time_queries">{{=output_size}}</span></li>
-	<li class="clickable last-button" data-toggle="queries">
+	<li class="button" data-toggle="output"><span class="title">Output:</span> <span class="time_queries">{{=output_size}}</span></li>
+	<li class="button last-of-type" data-toggle="queries" title="Number of queries / Execution time">
 		<span class="title">SQL:</span>
 		{{ if (queries.length) { }}
-			<span class="time_queries">{{=time_queries}} ms</span>
+			<span class="time_queries">{{=queries.length}}<span class="divider">/</span>{{=time_queries}} ms</span>
 		{{ } else { }}
 			<em>none</em>
 		{{ } }}
 	</li>
-	<li class="execution" title="Script execution / Laravel total">
-		<span class="title">Execution:</span> <span class="time">{{=time}}<span class="divider">/</span>{{=time_total}} ms</span>
+	<li class="execution help" title="Script execution / Laravel total">
+		<span class="title">Execution:</span> <span class="time">{{=time}} ms<span class="divider">/</span>{{=time_total}} ms</span>
 	</li>
-	<li><span class="title">Memory:</span> <span class="memory">{{=memory}}</span></li>
-	<li><span class="title">Memory peak:</span> <span class="memory_peak">{{=memory_peak}}</span></li>
+	<li class="memory help" title="Current memory / Memory peak">
+		<span class="title">Memory:</span> <span class="memory">{{=memory}}<span class="divider">/</span>{{=memory_peak}}</span>
+	</li>
 </script>
 
 <script type="text/html" id="template_execution_error">
