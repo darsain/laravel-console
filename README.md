@@ -11,8 +11,9 @@ This bundle is intended for local testing, and **shouldn't get nowhere near your
 
 ## Screenshots
 
-![Index](http://i.imgur.com/gdvVp.png)
-![Execution](http://i.imgur.com/lnSU0.png)
+![Index](http://i.imgur.com/5Cnl5.png)
+![Output](http://i.imgur.com/wpx3W.png)
+![SQL](http://i.imgur.com/uBmmj.png)
 
 ## Installation
 
@@ -49,6 +50,15 @@ And you are done! Open the console in:
 
 ```
 yourdomain.com/console
+```
+
+## Updating
+
+Commands required for updating this bundle:
+
+```
+> php artisan bundle:upgrade console
+> php artisan bundle:publish console
 ```
 
 ## Config
