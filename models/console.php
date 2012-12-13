@@ -25,13 +25,13 @@ class Console
 
 		// Extend the profile
 		static::$profile += array(
-			'memory'       => get_file_size(memory_get_usage(true)),
-			'memory_peak'  => get_file_size(memory_get_peak_usage(true)),
+			'memory'       => nice_bytesize(memory_get_usage(true)),
+			'memory_peak'  => nice_bytesize(memory_get_peak_usage(true)),
 			'time'         => number_format(($console_render_end - $console_render_start) * 1000, 2),
 			'time_queries' => number_format($time_queries, 2),
 			'time_total'   => number_format((microtime(true) - LARAVEL_START) * 1000, 2),
 			'output'       => $output,
-			'output_size'  => get_file_size(strlen($output)),
+			'output_size'  => nice_bytesize(strlen($output)),
 		);
 
 		return static::$profile;
