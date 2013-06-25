@@ -7,7 +7,7 @@ This bundle executes your code within `ConsoleController@postExecute` controller
 The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
 
-This bundle is intended for local testing, and **shouldn't get nowhere near your production servers!**
+This package is intended for local testing, and **shouldn't get nowhere near your production servers!**
 
 ## Screenshots
 
@@ -21,7 +21,7 @@ This bundle is intended for local testing, and **shouldn't get nowhere near your
 
 Installation in Laravel 4 is a breeze, simply add the following into composer.json file :
 
-	"allmyitjason/laravel-console": "dev-master"
+	"darsain/console": "dev-master"
 
 Run composer update :
 
@@ -45,14 +45,7 @@ And your done, browse to :
 
 ## Config
 
-You can override the default config by copying `bundles/console/config/console.php` into `application/config/console.php`
-(or to your dev/local environment subdirectory) and changing it to your liking.
 
-You can mostly ignore the config, but what you should know about is that option `console.filter` sets the name of
-a route filter used to controll access to the console. By default `console_whitelist` filter uses
-the `console.whitelist` array (`array('127.0.0.1', '::1')`) to allow only localhost usage.
-You can change the filter, or the whitelist array to whatever you want, but not having this bundle on production
-servers should be a no-brainer :)
 
 ---
 
