@@ -23,6 +23,10 @@ Installation in Laravel 4 is a breeze, simply add the following into composer.js
 
 	"allmyitjason/laravel-console": "dev-master"
 
+Run composer update :
+
+	"php composer.phar update"
+
 Add the following service provider into `app/config/app.php` :
 
 	'Darsain\Console\ConsoleServiceProvider'
@@ -33,7 +37,7 @@ Publish the assets :
 
 And your done, browse to :
 
-	http://localhost/console
+	http://yourdomain/console
 
 ### Laravel 3 (See tag L3)
 
