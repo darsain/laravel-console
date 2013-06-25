@@ -1,8 +1,8 @@
 # Laravel Console
 
-In-browser console bundle for Laravel PHP framework.
+In-browser console for Laravel PHP framework.
 
-This bundle executes your code within `console::Console@post_execute` controller context, and displays the produced output.
+This bundle executes your code within `ConsoleController@postExecute` controller context, and displays the produced output.
 
 The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
@@ -17,49 +17,27 @@ This bundle is intended for local testing, and **shouldn't get nowhere near your
 
 ## Installation
 
-Install this bundle by running this in Laravel root:
+### Laravel 4
 
-```
-php artisan bundle:install console
-```
+Installation in Laravel 4 is a breeze, simply add the following into composer.json file :
 
-Or alternatively in your `bundles` directory, run:
+	"allmyitjason/laravel-console": "dev-master"
 
-```
-git clone git://github.com/Darsain/laravel-console.git console
-```
+Add the following service provider into `app/config/app.php` :
 
-Register the bundle in `application/bundles.php`:
+	'Darsain\Console\ConsoleServiceProvider'
 
-```php
-// application/bundles.php
-return array(
-	...
-	'console' => array('handles' => 'console'),
-	...
-);
-```
+Publish the assets :
 
-Than publish the bundle assets:
+	php artisan asset:publish
 
-```
-php artisan bundle:publish console
-```
+And your done, browse to :
 
-And you are done! Open the console in:
+	http://localhost/console
 
-```
-yourdomain.com/console
-```
+### Laravel 3 (See tag L3)
 
-## Updating
-
-Commands required for updating this bundle:
-
-```
-> php artisan bundle:upgrade console
-> php artisan bundle:publish console
-```
+[allmyitjason/laravel-console/tree/L3](https://github.com/allmyitjason/laravel-console/tree/L3)
 
 ## Config
 
