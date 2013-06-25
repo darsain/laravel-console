@@ -1,7 +1,7 @@
-<?php
+<?php namespace Darsain\Console;
 
-use Laravel\Event;
-use Laravel\Database;
+use \Event;
+use \Database;
 
 class Console
 {
@@ -41,7 +41,7 @@ class Console
 	{
 		foreach ($bindings as $binding)
 		{
-			$binding = Database::connection()->pdo->quote($binding);
+			$binding = \DB::connection()->getPdo()->quote($binding);
 
 			$sql = preg_replace('/\?/', $binding, $sql, 1);
 			$sql = htmlspecialchars($sql);
@@ -55,7 +55,7 @@ class Console
 
 	public static function attach()
 	{
-		Event::listen('laravel.query', function($sql, $bindings, $time)
+		Event::listen('illuminate.query', function($sql, $bindings, $time)
 		{
 			Console::query($sql, $bindings, $time);
 		});
