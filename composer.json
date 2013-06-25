@@ -1,5 +1,5 @@
 {
-    "name": "laravel-console",
+    "name": "darsain/console",
     "description": "In-browser console for the Laravel PHP framework.",
     "authors": [
         {
