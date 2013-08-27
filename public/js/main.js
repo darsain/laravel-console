@@ -145,7 +145,7 @@ jQuery(function ($) {
 		execute();
 	});
 
-	jwerty.key('ctrl+enter', function () {
+	jwerty.key('ctrl+enter/cmd+enter', function () {
 		execute();
 	});
 
