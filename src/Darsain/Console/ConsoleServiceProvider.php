@@ -21,9 +21,9 @@ class ConsoleServiceProvider extends ServiceProvider {
 		$this->package('darsain/console');
 
 		//Include the routes
-		include __DIR__ . '/../../routes.php';
+		include_once __DIR__ . '/../../routes.php';
 		//Include helper file
-		include __DIR__ . '/../../helpers.php';
+		include_once __DIR__ . '/../../helpers.php';
 	}
 
 	/**
