@@ -8,8 +8,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Laravel Console</title>
 		<meta name="viewport" content="width=device-width">
-		{{ Asset::container('header')->styles() }}
-		{{ Asset::container('header')->scripts() }}
+		
+		{{ HTML::style('packages/darsain/console/css/normalize.css') }}
+		{{ HTML::style('packages/darsain/console/css/main.css') }}
+		{{ HTML::style('packages/darsain/console/css/codemirror/codemirror.css') }}
+		{{ HTML::style('packages/darsain/console/css/codemirror/theme/'.Config::get('console.theme', Config::get('console::theme')).'.css') }}
+
+		{{ HTML::script('packages/darsain/console/js/vendor/modernizr.js') }}
+
 	</head>
 	<body>
 		<!--[if lt IE 9]>

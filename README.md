@@ -1,13 +1,13 @@
 # Laravel Console
 
-In-browser console bundle for Laravel PHP framework.
+In-browser console for Laravel PHP framework.
 
-This bundle executes your code within `console::Console@post_execute` controller context, and displays the produced output.
+This bundle executes your code within `ConsoleController@postExecute` controller context, and displays the produced output.
 
 The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
 
-This bundle is intended for local testing, and **shouldn't get nowhere near your production servers!**
+This package is intended for local testing, and **shouldn't get nowhere near your production servers!**
 
 ## Screenshots
 
@@ -17,60 +17,35 @@ This bundle is intended for local testing, and **shouldn't get nowhere near your
 
 ## Installation
 
-Install this bundle by running this in Laravel root:
+### Laravel 4
 
-```
-php artisan bundle:install console
-```
+Installation in Laravel 4 is a breeze, simply add the following into composer.json file :
 
-Or alternatively in your `bundles` directory, run:
+	"darsain/console": "dev-master"
 
-```
-git clone git://github.com/Darsain/laravel-console.git console
-```
+Run composer update :
 
-Register the bundle in `application/bundles.php`:
+	"php composer.phar update"
 
-```php
-// application/bundles.php
-return array(
-	...
-	'console' => array('handles' => 'console'),
-	...
-);
-```
+Add the following service provider into `app/config/app.php` :
 
-Than publish the bundle assets:
+	'Darsain\Console\ConsoleServiceProvider'
 
-```
-php artisan bundle:publish console
-```
+Publish the assets :
 
-And you are done! Open the console in:
+	php artisan asset:publish
 
-```
-yourdomain.com/console
-```
+And your done, browse to :
 
-## Updating
+	http://yourdomain/console
 
-Commands required for updating this bundle:
+### Laravel 3 (See tag L3)
 
-```
-> php artisan bundle:upgrade console
-> php artisan bundle:publish console
-```
+[allmyitjason/laravel-console/tree/L3](https://github.com/allmyitjason/laravel-console/tree/L3)
 
 ## Config
 
-You can override the default config by copying `bundles/console/config/console.php` into `application/config/console.php`
-(or to your dev/local environment subdirectory) and changing it to your liking.
 
-You can mostly ignore the config, but what you should know about is that option `console.filter` sets the name of
-a route filter used to controll access to the console. By default `console_whitelist` filter uses
-the `console.whitelist` array (`array('127.0.0.1', '::1')`) to allow only localhost usage.
-You can change the filter, or the whitelist array to whatever you want, but not having this bundle on production
-servers should be a no-brainer :)
 
 ---
 
