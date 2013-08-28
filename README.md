@@ -1,4 +1,4 @@
-# Laravel Console
+# Laravel 3 Console
 
 In-browser console bundle for Laravel 3 PHP framework.
 
