@@ -1,13 +1,13 @@
 # Laravel Console
 
-In-browser console bundle for Laravel PHP framework.
+In-browser console bundle for Laravel 3 PHP framework.
 
 This bundle executes your code within `console::Console@post_execute` controller context, and displays the produced output.
 
 The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
 
-This bundle is intended for local testing, and **shouldn't get nowhere near your production servers!**
+This bundle is intended for a local testing, and **shouldn't get nowhere near your production servers!**
 
 ## Screenshots
 
@@ -17,17 +17,13 @@ This bundle is intended for local testing, and **shouldn't get nowhere near your
 
 ## Installation
 
-Install this bundle by running this in Laravel root:
+Navigate to your `bundles` directory, and run this command:
 
 ```
-php artisan bundle:install console
+git clone --depth=1 -b L3 https://github.com/Darsain/laravel-console.git console && rm -rf -- console/.git
 ```
 
-Or alternatively in your `bundles` directory, run:
-
-```
-git clone git://github.com/Darsain/laravel-console.git console
-```
+Or download [manually from here](https://github.com/Darsain/laravel-console/archive/L3.zip), and unzip into the `console` folder.
 
 Register the bundle in `application/bundles.php`:
 
@@ -50,15 +46,6 @@ And you are done! Open the console in:
 
 ```
 yourdomain.com/console
-```
-
-## Updating
-
-Commands required for updating this bundle:
-
-```
-> php artisan bundle:upgrade console
-> php artisan bundle:publish console
 ```
 
 ## Config
