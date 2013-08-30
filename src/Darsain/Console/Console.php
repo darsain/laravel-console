@@ -43,12 +43,18 @@ class Console
 			$time_queries += $query['time'];
 		}
 
+		// Extend the profile with new data
 		static::$profile = array_merge(static::$profile, array(
 			'memory'       => memory_get_usage(true),
 			'memory_peak'  => memory_get_peak_usage(true),
 			'time_queries' => number_format($time_queries, 2),
 			'time_total'   => number_format((microtime(true) - LARAVEL_START) * 1000, 2),
 		), $profile);
+
+		// Set human readable error type
+		if (isset($profile['error']['type']) and isset(static::$error_map[$profile['error']['type']])) {
+			$profile['error']['type'] = static::$error_map[$profile['error']['type']];
+		}
 
 		return static::$profile;
 	}
@@ -68,11 +74,6 @@ class Console
 		// Retrieve an error
 		if ($estatus === false) {
 			$profile['error'] = error_get_last();
-		}
-
-		// Set human readable error type
-		if (isset($profile['error']['type']) and isset(static::$error_map[$profile['error']['type']])) {
-			$profile['error']['type'] = static::$error_map[$profile['error']['type']];
 		}
 
 		// Extend the profile
