@@ -1,0 +1,28 @@
+{
+	"name": "darsain/console",
+	"description": "",
+	"keywords": [
+		"laravel",
+		"browser",
+		"console"
+	],
+	"authors": [
+		{
+			"name": "Darsain",
+			"email": "darsain@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"illuminate/support": "4.0.x"
+	},
+	"autoload": {
+		"classmap": [
+			"src/controllers"
+		],
+		"psr-0": {
+			"Darsain\\Console\\": "src/"
+		}
+	},
+	"minimum-stability": "dev"
+}

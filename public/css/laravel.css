@@ -3,7 +3,7 @@
 /* Color scheme */
 
 .cm-s-laravel { color: #aaa; }
-.cm-s-laravel .CodeMirror-gutter .CodeMirror-gutter-text{ color: #555; }
+.cm-s-laravel .CodeMirror-gutters .CodeMirror-gutter-text { color: #555; }
 
 .cm-s-laravel .cm-keyword { color: #DB613B; }
 .cm-s-laravel .cm-atom { color: #CF7EA9; }
@@ -38,22 +38,21 @@
 .CodeMirror-focused.cm-s-laravel .CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
 
 /* Editor styling */
-
 .cm-s-laravel {
-  line-height: 1.40em;
-  font-family: Monaco, Menlo,"Andale Mono","lucida console","Courier New",monospace !important;
-  background-color: #222;
-  text-shadow: 1px 1px 0 rgba(0,0,0,.4);
+	line-height: 1.40em;
+	font-family: Monaco, Menlo,"Andale Mono","lucida console","Courier New",monospace !important;
+	background-color: #222;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.4);
 }
 
-.cm-s-laravel .CodeMirror-gutter {
-  background: transparent;
-  padding: 0 5px;
-  border-right: 0;
+.cm-s-laravel .CodeMirror-gutters {
+	background: transparent;
+	padding: 0 5px;
+	border-right: 0;
 }
 
-.cm-s-laravel .CodeMirror-gutter .CodeMirror-gutter-text {
-  text-shadow: 0px 1px 1px #000;
+.cm-s-laravel .CodeMirror-gutters .CodeMirror-gutter-text {
+	text-shadow: 0px 1px 1px #000;
 }
 
 .cm-s-laravel .CodeMirror-lines {
@@ -61,10 +60,10 @@
 }
 
 .cm-s-laravel .CodeMirror-lines .CodeMirror-cursor {
-  border-left: 2px solid #666;
+	border-left: 2px solid #666;
 }
 
 .cm-s-laravel .activeline {
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.031);
+	background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.031);
 }
 
