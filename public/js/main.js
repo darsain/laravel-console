@@ -10,7 +10,7 @@
  */
 function niceBytesize(size) {
 	var i = Math.max(Math.floor(Math.log(0|size) / Math.log(1024)), 0);
-	return Math.round(size / Math.pow(1024, i), 2) + ' ' + niceBytesize.units[i];
+	return Math.round(size / Math.pow(1024, i), 2).toFixed(0) + ' ' + niceBytesize.units[i];
 }
 niceBytesize.units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
 

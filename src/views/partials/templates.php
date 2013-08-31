@@ -12,7 +12,9 @@
 		{{ } }}
 	</li>
 	<li class="execution help" title="Script execution / Laravel total">
-		<span class="title">Execution:</span> <span class="time">{{=time}}<span class="divider">/</span>{{=time_total}} <span class="muted">ms</span></span>
+		<span class="title">Execution:</span>
+		<span class="time">{{=time}}<span class="divider">/</span>{{=time_total}}
+		<span class="muted">ms</span></span>
 	</li>
 	<li class="memory help" title="Current memory / Memory peak">
 		<span class="title">Memory:</span> <span class="memory">{{=niceBytesize(memory)}}<span class="divider">/</span>{{=niceBytesize(memory_peak)}}</span>
@@ -50,7 +52,7 @@
 			<span class="muted"><em>Code produced no output</em></span>
 		{{ } }}
 
-		{{ if (typeof error !== 'undefined' && error) { }}
+		{{ if (typeof error !== 'undefined' && error && typeof error.message !== 'undefined') { }}
 			<div class="error clearfix">
 				{{ if (!/eval\(\)'d code/i.exec(error.file)) { }}
 					<span class="file">{{=error.file}}</span>

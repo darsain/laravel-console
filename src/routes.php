@@ -1,5 +1,27 @@
 <?php
 
+use Darsain\Console\Console;
+
+/*
+|--------------------------------------------------------------------------
+| Error handler
+|--------------------------------------------------------------------------
+*/
+
+App::error(function (Exception $e, $code) {
+	if (Route::currentRouteName() !== 'console_execute') {
+		return;
+	}
+	ob_end_clean();
+	Console::addProfile('error', array(
+		'type'    => $code,
+		'message' => $e->getMessage(),
+		'file'    => $e->getFile(),
+		'line'    => $e->getLine(),
+	));
+	return Response::json(Console::getProfile(), 200);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Routes
