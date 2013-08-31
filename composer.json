@@ -1,6 +1,6 @@
 {
 	"name": "darsain/laravel-console",
-	"description": "",
+	"description": "Browser console for Laravel Framework.",
 	"keywords": [
 		"laravel",
 		"browser",
