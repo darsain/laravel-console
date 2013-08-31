@@ -24,7 +24,7 @@ Add this into `require-dev` in your `composer.json` file:
 ```
 "require-dev" : {
 	...
-	"darsain/console": "dev-master"
+	"darsain/laravel-console": "dev-master"
 }
 ```
 
