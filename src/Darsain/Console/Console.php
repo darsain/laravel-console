@@ -142,7 +142,7 @@ class Console
 			$binding = DB::connection()->getPdo()->quote($binding);
 
 			$sql = preg_replace('/\?/', $binding, $sql, 1);
-			$sql = htmlspecialchars($sql);
+			$sql = htmlspecialchars($sql, ENT_NOQUOTES);
 		}
 
 		static::$profile['queries'][] = array(
