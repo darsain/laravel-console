@@ -64,22 +64,22 @@
 	</li>
 
 	<li data-tab="queries">
-		<ul class="queries">
+		<table class="queries">
 		{{ if (typeof queries !== 'undefined') { }}
 			{{ if (queries && queries.length) { }}
 				{{ for (var i = 0, l = queries.length; i < l; i++) { }}
-					<li class="clearfix">
-						<span class="time">{{=queries[i].time}} ms</span>
-						<span class="query">{{=queries[i].query}}</span>
-					</li>
+					<tr>
+						<td class="time">{{=queries[i].time}} ms</td>
+						<td class="query">{{=queries[i].query}}</td>
+					</tr>
 				{{ } }}
 			{{ } else { }}
-				<li class="clearfix">
-					<span class="muted"><em>No queries executed</em></span>
-				</li>
+				<tr>
+					<td class="muted"><em>No queries executed</em></td>
+				</tr>
 			{{ } }}
 		{{ } }}
-		</ul>
+		</table>
 	</li>
 </script>
 

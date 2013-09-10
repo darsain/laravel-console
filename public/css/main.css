@@ -116,16 +116,18 @@ code { font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New
 .response .output .error span.file { display: block; padding: 0.7em 1em; background: rgba(255, 255, 255, 0.1); font-size: .85em; }
 .response .output .error span.line { background: rgba(0,0,0,.1); }
 
-.response .queries { margin: 0; padding: 0; list-style: none; }
-.response .queries li { margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(0,0,0,.3); }
-.response .queries li:first-child { border-top: 0; }
-.response .queries li:last-child { border-bottom: 0; }
-.response .queries li span { display: block; float: left; padding: 1em; }
-.response .queries li span { border-right: 1px solid rgba(255,255,255,.05); border-left: 1px solid rgba(0,0,0,.3); }
-.response .queries li span:first-child { border-left: 0; }
-.response .queries li span:last-child { border-right: 0; }
-.response .queries li .time { width: 100px; color: #888; text-align: right; font-weight: bold; font-size: .8em; line-height: 2.2em; }
-.response .queries li .query { color: #80A76A; font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New", monospace; }
+.response .queries { border-collapse: separate; }
+.response .queries td {
+	padding: 1em; vertical-align: top;
+	border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(0,0,0,.3);
+	border-right: 1px solid rgba(255,255,255,.05); border-left: 1px solid rgba(0,0,0,.3);
+}
+.response .queries tr:first-child td { border-top: 0; }
+.response .queries tr:last-child td { border-bottom: 0; }
+.response .queries td:first-child { border-left: 0; }
+.response .queries td:last-child { border-right: 0; }
+.response .queries .time { width: 100px; color: #888; text-align: right; font-weight: bold; font-size: .8em; line-height: 2.2em; }
+.response .queries .query { color: #80A76A; font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New", monospace; }
 
 .controlbar {
 	z-index: 100;
