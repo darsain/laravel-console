@@ -11,9 +11,9 @@ This bundle is intended for a local testing, and **shouldn't get nowhere near yo
 
 ## Screenshots
 
-![Index](http://i.imgur.com/5Cnl5.png)
-![Output](http://i.imgur.com/wpx3W.png)
-![SQL](http://i.imgur.com/uBmmj.png)
+![Index](http://i.imgur.com/SaDPurm.png)
+![Output](http://i.imgur.com/YezliAi.png)
+![SQL](http://i.imgur.com/BLs7wnW.png)
 
 ## Installation
 
