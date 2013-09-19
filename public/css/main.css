@@ -116,7 +116,7 @@ code { font-family: Monaco, Menlo, "Andale Mono", "lucida console", "Courier New
 .response .output .error span.file { display: block; padding: 0.7em 1em; background: rgba(255, 255, 255, 0.1); font-size: .85em; }
 .response .output .error span.line { background: rgba(0,0,0,.1); }
 
-.response .queries { border-collapse: separate; }
+.response .queries { width: 100%; border-collapse: separate; }
 .response .queries td {
 	padding: 1em; vertical-align: top;
 	border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(0,0,0,.3);
