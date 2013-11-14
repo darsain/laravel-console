@@ -18,7 +18,7 @@ class ConsoleServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('darsain/console');
+		$this->package('darsain/laravel-console');
 
 		$src_path = __DIR__ . '/../../';
 

@@ -1,4 +1,4 @@
-@include('console::partials.head')
+@include('laravel-console::partials.head')
 
 <div id="console" class="console" data-action="{{ URL::route('console_execute') }}">
 	<ul id="response" class="response">
@@ -15,5 +15,5 @@
 	</section>
 </div>
 
-@include('console::partials.templates')
-@include('console::partials.foot')
+@include('laravel-console::partials.templates')
+@include('laravel-console::partials.foot')
