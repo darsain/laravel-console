@@ -8,7 +8,7 @@ class ConsoleController extends Controller {
 
 	public function getIndex()
 	{
-		return View::make('console::console');
+		return View::make('laravel-console::console');
 	}
 
 	public function postExecute()
