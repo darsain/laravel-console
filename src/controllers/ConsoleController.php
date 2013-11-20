@@ -4,8 +4,6 @@ use \Controller, \View, \Input, \App, \Response, \Route;
 
 class ConsoleController extends Controller {
 
-	public $restful = true;
-
 	public function getIndex()
 	{
 		return View::make('laravel-console::console');
