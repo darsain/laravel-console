@@ -12,7 +12,7 @@ App::error(function (Exception $e, $code) {
 	if (Route::currentRouteName() !== 'console_execute') {
 		return;
 	}
-	ob_end_clean();
+	@ob_end_clean();
 	Console::addProfile('error', array(
 		'type'    => $code,
 		'message' => $e->getMessage(),
