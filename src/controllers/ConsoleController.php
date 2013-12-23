@@ -1,6 +1,6 @@
 <?php namespace Darsain\Console;
 
-use \Controller, \View, \Input, \App, \Response, \Route;
+use \Controller, \View, \Input, \Response;
 
 class ConsoleController extends Controller {
 
@@ -15,6 +15,11 @@ class ConsoleController extends Controller {
 
 		// Execute and profile the code
 		$profile = Console::execute($code);
+
+		// Terminate on error, as Error Handler already responded.
+		if (isset($profile['error']) and $profile['error']) {
+			exit;
+		}
 
 		// Response
 		return Response::json($profile);

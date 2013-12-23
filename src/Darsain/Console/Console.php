@@ -113,7 +113,7 @@ class Console
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		// Retrieve an error
+		// When error occurred, add it to profile.
 		if ($estatus === false) {
 			static::addProfile('error', error_get_last());
 		}

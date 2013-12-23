@@ -48,7 +48,7 @@
 			<pre class="output_holder">{{=output}}</pre>
 		{{ } else if (typeof data !== 'undefined' && data) { }}
 			{{=data}}
-		{{ } else if (!error) { }}
+		{{ } else if (typeof error === 'undefined') { }}
 			<span class="muted"><em>Code produced no output</em></span>
 		{{ } }}
 

@@ -9,7 +9,7 @@ use Darsain\Console\Console;
 */
 
 App::error(function (Exception $e, $code) {
-	if (Route::currentRouteName() !== 'console_execute') {
+	if (App::runningInConsole() or !(Request::url() === 'console' and $_SERVER['REQUEST_METHOD'] === 'POST')) {
 		return;
 	}
 	@ob_end_clean();

@@ -115,27 +115,6 @@ jQuery(function ($) {
 
 		$controls.html(tmpl('controls_loading'));
 		execution.then(responseDone, responseFail);
-/*
-		execution.done(function (res) {
-			console.log('done response:', res);
-			$response.show();
-
-			if (res && res.output !== undefined) {
-				$controls.html(tmpl('controls', res));
-				$response.html(tmpl('output', res));
-				activate(tabs.active, 1);
-			} else {
-				$controls.html(tmpl('ended_unexpectedly'));
-				$response.html(tmpl('output', res));
-				activate(tabs.initial, 1);
-			}
-		}).fail(function (res) {
-			console.log('fail response:', res);
-			$controls.html(tmpl('controls_error', res));
-			$response.html(tmpl('output', res.responseText));
-		}).always(function () {
-			$response.imagesLoaded(resize);
-		});*/
 	}
 
 	/**
