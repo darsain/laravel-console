@@ -43,7 +43,7 @@ Register the console service provider in `app/config/app.php`:
 );
 ```
 
-Than publish the bundle assets:
+Then publish the bundle assets:
 
 ```
 php artisan asset:publish
