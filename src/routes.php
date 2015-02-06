@@ -8,6 +8,7 @@ use Darsain\Console\Console;
 |--------------------------------------------------------------------------
 */
 
+/*
 App::error(function (Exception $e, $code) {
 	if (App::runningInConsole() or !(Request::url() === 'console' and $_SERVER['REQUEST_METHOD'] === 'POST')) {
 		return;
@@ -21,6 +22,9 @@ App::error(function (Exception $e, $code) {
 	));
 	return Response::json(Console::getProfile(), 200);
 });
+*/
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +32,14 @@ App::error(function (Exception $e, $code) {
 |--------------------------------------------------------------------------
 */
 
-Route::group(array('before' => Config::get('laravel-console::filter')), function () {
+Route::group(array('before' => Config::get('laravel-console.filter')), function () {
 
 	Route::get('console',  'Darsain\Console\ConsoleController@getIndex');
+
 	Route::post('console', array(
-		'as' => 'console_execute',
-		'uses' => 'Darsain\Console\ConsoleController@postExecute'
+		'middleware' => [],
+		'as'         => 'console_execute',
+		'uses'       => 'Darsain\Console\ConsoleController@postExecute'
 	));
 
 });
@@ -46,7 +52,7 @@ Route::group(array('before' => Config::get('laravel-console::filter')), function
 
 Route::filter('console_whitelist', function () {
 
-	if (!in_array($_SERVER['REMOTE_ADDR'], Config::get('laravel-console::whitelist'), true))
+	if (!in_array($_SERVER['REMOTE_ADDR'], Config::get('laravel-console.whitelist'), true))
 	{
 		App::abort(404);
 	}

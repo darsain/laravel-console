@@ -13,6 +13,8 @@
 
 	<section id="editor" class="editor">
 	</section>
+
+    <input type="hidden" name="_token" id="token" value="{{ Session::token() }}">
 </div>
 
 @include('laravel-console::partials.templates')

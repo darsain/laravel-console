@@ -56,6 +56,8 @@ jQuery(function ($) {
 	var $response = $('#response');
 	var $controlbar = $('#controlbar');
 	var $editor = $('#editor');
+
+
 	var action = $console.data('action');
 	var $execute = $('#execute');
 	var $controls = $('#controls');
@@ -107,7 +109,8 @@ jQuery(function ($) {
 			type: 'POST',
 			cache: false,
 			data: {
-				code: editor.getValue()
+				code: editor.getValue(),
+				'_token': $('#token').val()
 			},
 			dataType: 'text',
 			timeout: 30000

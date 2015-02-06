@@ -1,8 +1,10 @@
 <?php namespace Darsain\Console;
 
-use \Controller, \View, \Input, \Response;
+use Illuminate\Routing\Controller as BaseController;
 
-class ConsoleController extends Controller {
+use View, Input, Response, Session;
+
+class ConsoleController extends BaseController {
 
 	public function getIndex()
 	{
