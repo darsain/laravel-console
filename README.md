@@ -1,4 +1,4 @@
-# Laravel 4 Console
+# Laravel 5 Console
 
 In-browser console for Laravel 4 PHP framework.
 
