@@ -1,6 +1,6 @@
 # Laravel 5 Console
 
-In-browser console for Laravel 4 PHP framework.
+In-browser console for Laravel 5 PHP framework.
 
 This bundle executes your code within `ConsoleController@postExecute` context, and displays the produced output.
 
@@ -17,14 +17,14 @@ This bundle is intended for a local testing, and **shouldn't get nowhere near yo
 
 ## Installation
 
-### Laravel 4
+### Laravel 5
 
 Add this into `require-dev` in your `composer.json` file:
 
 ```
 "require-dev" : {
 	...
-	"darsain/laravel-console": "dev-master"
+	"darsain/laravel-console": "dev-L5"
 }
 ```
 
@@ -34,19 +34,19 @@ Run an update:
 php composer.phar update
 ```
 
-Register the console service provider in `app/config/app.php`:
+Register the console service provider in `config/app.php`:
 
 ```php
-'providers' => array(
+'providers' => [
 	...
 	'Darsain\Console\ConsoleServiceProvider',
-);
+];
 ```
 
 Then publish the bundle assets:
 
 ```
-php artisan asset:publish
+php artisan vendor:publish
 ```
 
 And you are done! Open the console in:
@@ -54,7 +54,3 @@ And you are done! Open the console in:
 ```
 yourdomain.com/console
 ```
-
-### Laravel 3
-
-Laravel 3 version along with installation process can be found in the [L3 branch](https://github.com/Darsain/laravel-console/tree/L3).
