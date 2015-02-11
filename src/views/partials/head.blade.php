@@ -6,11 +6,11 @@
 		<title>Laravel Console</title>
 		<meta name="viewport" content="width=device-width">
 
-		<link rel="stylesheet" href="{{ asset('packages/darsain/laravel-console/css/normalize.css') }}">
-		<link rel="stylesheet" href="{{ asset('packages/darsain/laravel-console/css/main.css') }}">
-		<link rel="stylesheet" href="{{ asset('packages/darsain/laravel-console/css/codemirror.css') }}">
-		<link rel="stylesheet" href="{{ asset('packages/darsain/laravel-console/css/laravel.css') }}">
+		<link rel="stylesheet" href="{{ asset('packages/darsain/console/css/normalize.css') }}">
+		<link rel="stylesheet" href="{{ asset('packages/darsain/console/css/main.css') }}">
+		<link rel="stylesheet" href="{{ asset('packages/darsain/console/css/codemirror.css') }}">
+		<link rel="stylesheet" href="{{ asset('packages/darsain/console/css/laravel.css') }}">
 
-		<script src="{{ asset('packages/darsain/laravel-console/js/vendor/modernizr.js') }}"></script>
+		<script src="{{ asset('packages/darsain/console/js/vendor/modernizr.js') }}"></script>
 	</head>
 	<body>

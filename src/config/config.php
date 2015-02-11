@@ -26,6 +26,6 @@ return array(
 	|
 	*/
 
-	'whitelist' => array('127.0.0.1', '::1'),
+	'whitelist' => array('127.0.0.1', '192.168.10.1', '::1'),
 
 );

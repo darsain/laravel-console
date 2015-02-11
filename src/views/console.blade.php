@@ -1,4 +1,4 @@
-@include('laravel-console::partials.head')
+@include('console::partials.head')
 
 <div id="console" class="console" data-action="{{ URL::route('console_execute') }}">
 	<ul id="response" class="response">
@@ -17,5 +17,5 @@
     <input type="hidden" name="_token" id="token" value="{{ Session::token() }}">
 </div>
 
-@include('laravel-console::partials.templates')
-@include('laravel-console::partials.foot')
+@include('console::partials.templates')
+@include('console::partials.foot')

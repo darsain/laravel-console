@@ -27,15 +27,15 @@ class ConsoleServiceProvider extends ServiceProvider {
         }
 
         $this->publishes([
-            __DIR__.'/../../config/config.php' => config_path('laravel-console.php'),
-            __DIR__.'/../../../public/' => base_path('public/packages/darsain/laravel-console'),
+            __DIR__.'/../../config/config.php' => config_path('console.php'),
+            __DIR__.'/../../../public/' => base_path('public/packages/darsain/console'),
         ]);
 
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/config.php', 'laravel-console'
+            __DIR__.'/../../config/config.php', 'console'
         );
 
-        $this->loadViewsFrom(__DIR__.'/../../views', 'laravel-console');
+        $this->loadViewsFrom(__DIR__.'/../../views', 'console');
 
         $src_path = __DIR__ . '/../../';
 
