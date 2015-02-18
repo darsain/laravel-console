@@ -12,11 +12,11 @@ class ConsoleServiceProvider extends ServiceProvider {
     protected $defer = false;
 
     /**
-     * Bootstrap the application events.
+     * Register the service provider.
      *
      * @return void
      */
-    public function boot()
+    public function register()
     {
         if ($this->app['request']->is('console') and $this->app['request']->getMethod() == 'POST')
         {
@@ -44,16 +44,6 @@ class ConsoleServiceProvider extends ServiceProvider {
 
         // Attach Console events
         Console::attach();
-    }
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 
     /**
