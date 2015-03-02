@@ -12,6 +12,23 @@ class ConsoleServiceProvider extends ServiceProvider {
     protected $defer = false;
 
     /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $configPath = __DIR__.'/../../config/config.php';
+        $publicPath = __DIR__.'/../../../public';
+
+        // Publish config.
+        $this->publishes([
+            $configPath => config_path('console.php'),
+            $publicPath => base_path('public/packages/darsain/console'),
+        ]);
+    }
+
+    /**
      * Register the service provider.
      *
      * @return void
@@ -26,21 +43,17 @@ class ConsoleServiceProvider extends ServiceProvider {
             );
         }
 
-        $this->publishes([
-            __DIR__.'/../../config/config.php' => config_path('console.php'),
-            __DIR__.'/../../../public/' => base_path('public/packages/darsain/console'),
-        ]);
+        $configPath = __DIR__.'/../../config/config.php';
+        $routePath = __DIR__ . '/../../routes.php';
+        $viewPath = __DIR__.'/../../views';
 
-        $this->mergeConfigFrom(
-            __DIR__.'/../../config/config.php', 'console'
-        );
 
-        $this->loadViewsFrom(__DIR__.'/../../views', 'console');
+        $this->mergeConfigFrom($configPath, 'console');
 
-        $src_path = __DIR__ . '/../../';
+        $this->loadViewsFrom($viewPath, 'console');
 
         // Routes
-        require $src_path . 'routes.php';
+        require $routePath;
 
         // Attach Console events
         Console::attach();
