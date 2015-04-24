@@ -8,7 +8,16 @@ use Darsain\Console\Console;
 |--------------------------------------------------------------------------
 */
 
-Route::group(array('before' => Config::get('console.filter')), function () {
+$group = [];
+
+$middleware = Config::get('console.middleware');
+
+if ( ! is_null($middleware))
+{
+	$group['middleware'] = $middleware;
+}
+
+Route::group($group, function () {
 
 	Route::get('console',  'Darsain\Console\ConsoleController@getIndex');
 
@@ -17,20 +26,5 @@ Route::group(array('before' => Config::get('console.filter')), function () {
 		'as'         => 'console_execute',
 		'uses'       => 'Darsain\Console\ConsoleController@postExecute'
 	));
-
-});
-
-/*
-|--------------------------------------------------------------------------
-| Route Filters
-|--------------------------------------------------------------------------
-*/
-
-Route::filter('console_whitelist', function () {
-
-	if (!in_array($_SERVER['REMOTE_ADDR'], Config::get('console.whitelist'), true))
-	{
-		App::abort(404);
-	}
 
 });

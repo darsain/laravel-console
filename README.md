@@ -46,7 +46,7 @@ Register the console service provider in `config/app.php`:
 Then publish the bundle assets:
 
 ```
-php artisan vendor:publish
+php artisan vendor:publish --provider="Darsain\Console\ConsoleServiceProvider"
 ```
 
 And you are done! Open the console in:
