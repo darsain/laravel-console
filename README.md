@@ -21,7 +21,7 @@ This bundle is intended for a local testing, and **shouldn't get nowhere near yo
 
 Add this into `repositories` and `require-dev` in your `composer.json` file:
 
-```
+```json
 "repositories": [
     {
         "type": "vcs",
