@@ -19,9 +19,15 @@ This bundle is intended for a local testing, and **shouldn't get nowhere near yo
 
 ### Laravel 5
 
-Add this into `require-dev` in your `composer.json` file:
+Add this into `repositories` and `require-dev` in your `composer.json` file:
 
 ```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/teepluss/laravel-console"
+    }
+],
 "require-dev" : {
 	...
 	"darsain/laravel-console": "dev-L5"
