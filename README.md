@@ -29,7 +29,6 @@ Add this into `repositories` and `require-dev` in your `composer.json` file:
     }
 ],
 "require-dev" : {
-	...
 	"darsain/laravel-console": "dev-L5"
 }
 ```
