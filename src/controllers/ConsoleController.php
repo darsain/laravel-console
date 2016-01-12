@@ -1,11 +1,15 @@
-<?php namespace Darsain\Console;
+<?php
 
-use Illuminate\Routing\Controller as BaseController;
+namespace Darsain\Console;
 
-use View, Input, Response, Session;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
 
-class ConsoleController extends BaseController {
-
+class ConsoleController extends Controller
+{
 	public function getIndex()
 	{
 		return View::make('console::console');
@@ -26,5 +30,4 @@ class ConsoleController extends BaseController {
 		// Response
 		return Response::json($profile);
 	}
-
 }
