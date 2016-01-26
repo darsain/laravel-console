@@ -107,6 +107,7 @@ jQuery(function ($) {
 			type: 'POST',
 			cache: false,
 			data: {
+                		_token: $('meta[name=_token]').attr('content'),
 				code: editor.getValue()
 			},
 			dataType: 'text',
