@@ -169,10 +169,23 @@ class Console
 	 */
 	public static function attach()
 	{
-		Event::listen('illuminate.query', function ($sql, $bindings, $time)
-		{
-			Console::query($sql, $bindings, $time);
-		});
+		$db = app('db');
+		$db->listen(
+			function ($query, $bindings = null, $time = null, $connectionName = null) use ($db) {
+				// Laravel 5.2 changed the way some core events worked. We must account for
+				// the first argument being an "event object", where arguments are passed
+				// via object properties, instead of individual arguments.
+				if ($query instanceof \Illuminate\Database\Events\QueryExecuted) {
+					$bindings = $query->bindings;
+					$time = $query->time;
+					$connection = $query->connection;
+					$query = $query->sql;
+				} else {
+					$connection = $db->connection($connectionName);
+				}
+				Console::query((string) $query, $bindings, $time);
+			}
+		);
 	}
 
 	/**
