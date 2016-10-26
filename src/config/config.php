@@ -12,6 +12,6 @@ return array(
 	|
 	*/
 
-	'middleware' => null,
+	'middleware' => ['web'],
 
 );

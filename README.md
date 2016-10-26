@@ -44,7 +44,7 @@ Register the console service provider in `config/app.php`:
 ```php
 'providers' => [
 	...
-	'Darsain\Console\ConsoleServiceProvider',
+	Darsain\Console\ConsoleServiceProvider::class,
 ];
 ```
 
