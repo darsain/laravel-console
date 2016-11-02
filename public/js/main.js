@@ -108,9 +108,9 @@ jQuery(function ($) {
 		var execution = $.ajax(action, {
 			type: 'POST',
 			cache: false,
+      headers: { 'X-CSRF-TOKEN': Laravel.csrfToken },
 			data: {
-				code: editor.getValue(),
-				'_token': $('#token').val()
+				code: editor.getValue()
 			},
 			dataType: 'text',
 			timeout: 30000

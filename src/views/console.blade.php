@@ -1,6 +1,6 @@
 @include('console::partials.head')
 
-<div id="console" class="console" data-action="{{ URL::route('console_execute') }}">
+<div id="console" class="console" data-action="{{ route('console_execute') }}">
 	<ul id="response" class="response">
 	</ul>
 
@@ -11,7 +11,6 @@
 	</nav>
 
 	<section id="editor" class="editor"></section>
-  <input type="hidden" name="_token" id="token" value="{{ Session::token() }}">
 </div>
 
 @include('console::partials.templates')

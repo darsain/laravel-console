@@ -18,14 +18,11 @@ class ConsoleServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $configPath = __DIR__.'/../../config/config.php';
-        $publicPath = __DIR__.'/../../../public';
-
         // Publish config.
         $this->publishes([
-            $configPath => config_path('console.php'),
-            $publicPath => base_path('public/packages/darsain/console'),
-        ]);
+            __DIR__.'/../../config/config.php' => config_path('console.php'),
+            __DIR__.'/../../../public' => base_path('public/vendor/darsain/console'),
+        ], 'public');
     }
 
     /**
@@ -35,25 +32,28 @@ class ConsoleServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        if ($this->app['request']->is('console') and $this->app['request']->getMethod() == 'POST')
-        {
-            $this->app->singleton(
+        if ($this->app['request']->is('console') and $this->app['request']->getMethod() == 'POST') {
+            $this->app->bind(
                 'Illuminate\Contracts\Debug\ExceptionHandler',
                 'Darsain\Console\Handler'
             );
         }
 
-        $configPath = __DIR__.'/../../config/config.php';
-        $routePath = __DIR__ . '/../../routes.php';
-        $viewPath = __DIR__.'/../../views';
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/config.php', 'console'
+        );
 
+        $this->loadViewsFrom(
+            __DIR__.'/../../views', 'console'
+        );
 
-        $this->mergeConfigFrom($configPath, 'console');
+        $this->publishes([
+            __DIR__.'/../../views' => resource_path('views/vendor/console'),
+        ], 'view');
 
-        $this->loadViewsFrom($viewPath, 'console');
-
-        // Routes
-        require $routePath;
+        if (! $this->app->routesAreCached()) {
+            require __DIR__ . '/../../routes.php';
+        }
 
         // Attach Console events
         Console::attach();

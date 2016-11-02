@@ -1,5 +1,5 @@
 {
-	"name": "darsain/laravel-console",
+	"name": "teepluss/laravel-console",
 	"description": "Browser console for Laravel Framework.",
 	"keywords": [
 		"laravel",
@@ -7,9 +7,17 @@
 		"console"
 	],
 	"license": "MIT",
+    "authors": [
+    {
+        "name": "Teepluss",
+        "email": "teepluss@gmail.com",
+        "homepage": "https://github.com/teepluss",
+        "role": "Developer"
+    }
+    ],
 	"require": {
 		"php": ">=5.4.0",
-		"illuminate/support": ">=5.0.1"
+		"illuminate/support": ">=5.1.0"
 	},
 	"autoload": {
 		"classmap": [
@@ -19,5 +27,6 @@
 			"Darsain\\Console\\": "src/"
 		}
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+    "prefer-stable": true
 }

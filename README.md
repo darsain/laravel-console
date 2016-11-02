@@ -2,12 +2,14 @@
 
 In-browser console for Laravel 5 PHP framework.
 
-This bundle executes your code within `ConsoleController@postExecute` context, and displays the produced output.
+This package is a re-published, re-organised and maintained version of darsain/laravel-console, which isn't maintained anymore.
+
+This package executes your code within `ConsoleController@postExecute` context, and displays the produced output.
 
 The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
 
-This bundle is intended for a local testing, and **shouldn't get nowhere near your production servers!**
+This package is intended for a local testing, and **shouldn't get nowhere near your production servers!**
 
 ## Screenshots
 
@@ -19,24 +21,10 @@ This bundle is intended for a local testing, and **shouldn't get nowhere near yo
 
 ### Laravel 5
 
-Add this into `repositories` and `require-dev` in your `composer.json` file:
-
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/teepluss/laravel-console"
-    }
-],
-"require-dev" : {
-	"darsain/laravel-console": "dev-L5"
-}
-```
-
-Run an update:
+To install through composer, simply run the following command:
 
 ```
-php composer.phar update
+php cocomposer require teepluss/laravel-console
 ```
 
 Register the console service provider in `config/app.php`:
@@ -48,7 +36,7 @@ Register the console service provider in `config/app.php`:
 ];
 ```
 
-Then publish the bundle assets:
+Then publish the package assets:
 
 ```
 php artisan vendor:publish --provider="Darsain\Console\ConsoleServiceProvider"
