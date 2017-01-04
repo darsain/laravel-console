@@ -1,13 +1,15 @@
-# Laravel 4 Console
+# Laravel 5 Console
 
-In-browser console for Laravel 4 PHP framework.
+In-browser console for Laravel 5 PHP framework.
 
-This bundle executes your code within `ConsoleController@postExecute` context, and displays the produced output.
+This package is a re-published, re-organised and maintained version of darsain/laravel-console, which isn't maintained anymore.
+
+This package executes your code within `ConsoleController@postExecute` context, and displays the produced output.
 
 The purpose is to easily test your stuff without creating garbage routes and controllers just to run something, ...
 I'm sure you know what I'm talking about :)
 
-This bundle is intended for a local testing, and **shouldn't get nowhere near your production servers!**
+This package is intended for a local testing, and **shouldn't get nowhere near your production servers!**
 
 ## Screenshots
 
@@ -17,36 +19,27 @@ This bundle is intended for a local testing, and **shouldn't get nowhere near yo
 
 ## Installation
 
-### Laravel 4
+### Laravel 5
 
-Add this into `require-dev` in your `composer.json` file:
-
-```
-"require-dev" : {
-	...
-	"darsain/laravel-console": "dev-master"
-}
-```
-
-Run an update:
+To install through composer, simply run the following command:
 
 ```
-php composer.phar update
+php cocomposer require teepluss/laravel-console
 ```
 
-Register the console service provider in `app/config/app.php`:
+Register the console service provider in `config/app.php`:
 
 ```php
-'providers' => array(
+'providers' => [
 	...
-	'Darsain\Console\ConsoleServiceProvider',
-);
+	Darsain\Console\ConsoleServiceProvider::class,
+];
 ```
 
-Then publish the bundle assets:
+Then publish the package assets:
 
 ```
-php artisan asset:publish
+php artisan vendor:publish --provider="Darsain\Console\ConsoleServiceProvider"
 ```
 
 And you are done! Open the console in:
@@ -54,7 +47,3 @@ And you are done! Open the console in:
 ```
 yourdomain.com/console
 ```
-
-### Laravel 3
-
-Laravel 3 version along with installation process can be found in the [L3 branch](https://github.com/Darsain/laravel-console/tree/L3).

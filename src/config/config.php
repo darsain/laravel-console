@@ -12,20 +12,6 @@ return array(
 	|
 	*/
 
-	'filter' => 'console_whitelist',
-
-	/*
-	|--------------------------------------------------------------------------
-	| Enable console only for this locations
-	|--------------------------------------------------------------------------
-	|
-	| Addresses allowed to access the console. This array is used in
-	| 'console_whitelist' route filter. Nevertheless, this bundle should never
-	| get nowhere near your production servers, but who am I to tell you how
-	| to live your life :)
-	|
-	*/
-
-	'whitelist' => array('127.0.0.1', '::1'),
+	'middleware' => ['web'],
 
 );

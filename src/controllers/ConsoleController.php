@@ -1,12 +1,18 @@
-<?php namespace Darsain\Console;
+<?php
 
-use \Controller, \View, \Input, \Response;
+namespace Darsain\Console;
 
-class ConsoleController extends Controller {
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
 
+class ConsoleController extends Controller
+{
 	public function getIndex()
 	{
-		return View::make('laravel-console::console');
+		return View::make('console::console');
 	}
 
 	public function postExecute()
@@ -24,5 +30,4 @@ class ConsoleController extends Controller {
 		// Response
 		return Response::json($profile);
 	}
-
 }

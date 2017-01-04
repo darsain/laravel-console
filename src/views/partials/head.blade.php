@@ -6,11 +6,16 @@
 		<title>Laravel Console</title>
 		<meta name="viewport" content="width=device-width">
 
-		{{ HTML::style('packages/darsain/laravel-console/css/normalize.css') }}
-		{{ HTML::style('packages/darsain/laravel-console/css/main.css') }}
-		{{ HTML::style('packages/darsain/laravel-console/css/codemirror.css') }}
-		{{ HTML::style('packages/darsain/laravel-console/css/laravel.css') }}
+		<link rel="stylesheet" href="{{ asset('vendor/darsain/console/css/normalize.css') }}">
+		<link rel="stylesheet" href="{{ asset('vendor/darsain/console/css/main.css') }}">
+		<link rel="stylesheet" href="{{ asset('vendor/darsain/console/css/codemirror.css') }}">
+		<link rel="stylesheet" href="{{ asset('vendor/darsain/console/css/laravel.css') }}">
 
-		{{ HTML::script('packages/darsain/laravel-console/js/vendor/modernizr.js') }}
+    <script>
+      window.Laravel = <?php echo json_encode([
+        'csrfToken' => csrf_token(),
+      ]); ?>
+    </script>
+		<script src="{{ asset('vendor/darsain/console/js/vendor/modernizr.js') }}"></script>
 	</head>
 	<body>

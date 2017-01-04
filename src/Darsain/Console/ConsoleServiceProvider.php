@@ -4,49 +4,69 @@ use Illuminate\Support\ServiceProvider;
 
 class ConsoleServiceProvider extends ServiceProvider {
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
-	/**
-	 * Bootstrap the application events.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->package('darsain/laravel-console');
+    /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // Publish config.
+        $this->publishes([
+            __DIR__.'/../../config/config.php' => config_path('console.php'),
+            __DIR__.'/../../../public' => base_path('public/vendor/darsain/console'),
+        ], 'public');
+    }
 
-		$src_path = __DIR__ . '/../../';
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        if ($this->app['request']->is('console') and $this->app['request']->getMethod() == 'POST') {
+            $this->app->bind(
+                'Illuminate\Contracts\Debug\ExceptionHandler',
+                'Darsain\Console\Handler'
+            );
+        }
 
-		// Routes
-		require $src_path . 'routes.php';
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/config.php', 'console'
+        );
 
-		// Attach Console events
-		Console::attach();
-	}
+        $this->loadViewsFrom(
+            __DIR__.'/../../views', 'console'
+        );
 
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		//
-	}
+        $this->publishes([
+            __DIR__.'/../../views' => resource_path('views/vendor/console'),
+        ], 'view');
 
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
+        if (! $this->app->routesAreCached()) {
+            require __DIR__ . '/../../routes.php';
+        }
+
+        // Attach Console events
+        Console::attach();
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return array();
+    }
 
 }

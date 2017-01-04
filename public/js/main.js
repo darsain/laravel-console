@@ -56,6 +56,8 @@ jQuery(function ($) {
 	var $response = $('#response');
 	var $controlbar = $('#controlbar');
 	var $editor = $('#editor');
+
+
 	var action = $console.data('action');
 	var $execute = $('#execute');
 	var $controls = $('#controls');
@@ -106,6 +108,7 @@ jQuery(function ($) {
 		var execution = $.ajax(action, {
 			type: 'POST',
 			cache: false,
+      headers: { 'X-CSRF-TOKEN': Laravel.csrfToken },
 			data: {
 				code: editor.getValue()
 			},
